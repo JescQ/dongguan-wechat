@@ -1,0 +1,31 @@
+/* components/navigationBar/index.wxss */
+@import '../../styles/iconfont.wxss';
+
+
+.navigationBar {
+  position: fixed;
+  box-sizing: border-box;
+  width: 100%;
+  background: #fff;
+  color: #000;
+  /* height: 64px; *//* line-height: 44px; */
+}
+
+/* .navigationBarStatus {
+  padding-top: 20px;
+} */
+
+.back {
+  position: absolute;
+  /* padding-left: 12px; */
+  z-index: 9;
+  text-align: center;
+  width: 80rpx;
+}
+
+.title {
+  /* position: fixed; */
+  width: 100%;
+  background: #fff;
+  text-align: center;
+}

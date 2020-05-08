@@ -1,0 +1,74 @@
+/* pages/upload_video/index.wxss */
+
+/* 顶部 */
+.content {
+  margin-top: 50rpx;
+}
+
+.video_area {
+  box-sizing: border-box;
+  position: relative;
+  margin: 0 auto;
+  padding: 30rpx;
+  width: 70%;
+  height: 400rpx;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 30rpx;
+  box-shadow: 0rpx 0rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.mask {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+}
+
+.video_show {
+  width: 100%;
+  height: 100%;
+}
+
+.mb50rpx {
+  margin-bottom: 50rpx;
+}
+
+.editor {
+  padding: 0 40rpx 40rpx;
+}
+
+.editor>view {
+  display: flex;
+  align-items: center;
+  height: 120rpx;
+}
+
+.editor>view {
+  border-bottom: 1px solid #efefef;
+}
+.editor>view:nth-last-of-type(1){
+  border-bottom: none;
+}
+
+.editor>view>text {
+  float: left;
+  width: 200rpx;
+}
+
+.editor>view>input, .editor>view>view {
+  float: right;
+  /* margin-left: 200rpx; */
+  width: calc(100% - 210rpx);
+}
+
+picker view {
+  float: right;
+}
+
+.more_btn {
+}

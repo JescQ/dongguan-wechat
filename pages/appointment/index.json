@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "phoneCode": "../../components/phoneCode/index"
+  },
+  "navigationStyle": "default",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "预约参观"
+}

@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+  },
+  "navigationStyle": "default",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "历史视频上传"
+}

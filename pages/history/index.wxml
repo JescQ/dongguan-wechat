@@ -1,0 +1,4 @@
+<!--pages/history/index.wxml-->
+<view>
+  <view class="item" wx:for="{{historyType}}" data-url="{{item.url}}" bindtap="toHistoryByUrl" wx:key="{{item.type}}">{{item.text}}</view>
+</view>

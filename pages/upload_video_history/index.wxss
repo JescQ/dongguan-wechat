@@ -1,0 +1,21 @@
+/* pages/upload_video_history/index.wxss */
+
+.content view {
+  display: flex;
+  justify-content: space-between;
+  line-height: 50rpx;
+}
+
+button {
+  width: 41%;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 16px;
+  background: #fff;
+  border-radius: 0 !important;
+}
+
+button::after {
+  /* border: none !important; */
+  border-radius: 0 !important;
+}

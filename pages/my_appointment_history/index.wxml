@@ -1,0 +1,35 @@
+<!--pages/my_appointment_history/index.wxml-->
+<wxs module="filter" src="../../utils/numbertofix.wxs"></wxs>
+<view class="bgc">
+  <view class="navigationBarBG">
+    <!-- <view style="position:fixed;z-index:999999;width:100%;height:{{CustomBar}}px;">
+      <navigationBar config="{{config}}"></navigationBar>
+    </view>
+    <view style="padding-top:{{CustomBar}}px"></view> -->
+    <view>
+      <view class="content" style="margin-bottom:20rpx;padding:40rpx;background:#fff;" wx:for="{{list}}">
+        <view>
+          <text>{{item.realName}}</text>
+          <text>{{item.phone}}</text>
+        </view>
+        <view>
+          <text>{{item.company}}</text>
+        </view>
+        <view>
+          <text>{{item.subTime}}</text>
+        </view>
+        <view>
+          <text>{{filter.typeFilter(item.subType)}}</text>
+          <text style="color:{{item.status == 0?'#fea500':item.status == 1 ?'#10aeff':'#f76260'}}">{{filter.statusFilter(item.status)}}</text>
+        </view>
+        <view style="margin-top:40rpx;">
+          <button bindtap="modify" data-option="{{item}}" disabled="{{item.status != 0}}" style="color:{{item.status == 0?'#10aeff':''}};">修改</button>
+          <button bindtap="cancel" data-id="{{item.id}}" disabled="{{item.status != 0}}">取消</button>
+        </view>
+      </view>
+      <view wx:if="{{pages < maxPages}}" bindtap="more" style="padding:20rpx 40rpx 40rpx;text-align:center;">点击加载更多</view>
+      <view wx:if="{{list.length == 0}}" style="padding:20rpx 40rpx 40rpx;text-align:center;">暂无预约</view>
+    </view>
+  </view>
+  <!-- <authorize wx:if="{{isShow}}" style="position:fixed;left:0;top:0;width:100%;height:100%;z-index:9;" bind:historyInit="historyInit" bind:dialogStatus="getChildrenCode"></authorize> -->
+</view>

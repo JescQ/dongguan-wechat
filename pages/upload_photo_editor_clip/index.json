@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "image-cropper": "../../components/image-cropper/image-cropper"
+  },
+  "navigationStyle": "default",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "图片裁剪"
+}

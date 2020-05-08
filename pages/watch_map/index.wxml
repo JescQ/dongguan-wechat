@@ -1,0 +1,15 @@
+<!--pages/watch_map/index.wxml-->
+<view class="bgc">
+  <view class="navigationBarBG">
+    <view style="position:fixed;z-index:999999;width:100%;height:{{CustomBar}}px;">
+      <navigationBar config="{{config}}"></navigationBar>
+    </view>
+    <view style="padding-top:{{CustomBar}}px"></view>
+    <view class="content" style="height:calc(100vh - {{CustomBar}}px)">
+      <image style="width:100%;height:100%;"></image>
+      <!-- <view bindtap="look" data-ewm="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=7bcb659c9745d688a302b5a29cf91a23/2934349b033b5bb571dc8c5133d3d539b600bc12.jpg">
+        <image src="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=7bcb659c9745d688a302b5a29cf91a23/2934349b033b5bb571dc8c5133d3d539b600bc12.jpg"  show-menu-by-longpress></image>
+      </view> -->
+    </view>
+  </view>
+</view>

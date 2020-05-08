@@ -1,0 +1,23 @@
+var filter = {
+  statusFilter: function(status) {
+    if (+status == 0) {
+      return '审核中'
+    } else if (+status == 1) {
+      return '审核通过'
+    } else if (+status == 2) {
+      return '审核失败'
+    }
+  },
+  typeFilter: function(type){
+    if(+type == 1){
+      return '场地设备'
+    }else if (+type == 2){
+      return '参观'
+    }
+  }
+}
+
+module.exports = {
+  statusFilter: filter.statusFilter,
+  typeFilter: filter.typeFilter
+}

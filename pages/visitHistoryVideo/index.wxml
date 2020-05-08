@@ -1,0 +1,4 @@
+<!--pages/visitHistoryVideo/index.wxml-->
+<view style="text-align:center;">
+  <video src="{{url}}"></video>
+</view>

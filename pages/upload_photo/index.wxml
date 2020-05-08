@@ -1,0 +1,59 @@
+<!--pages/upload_photo/index.wxml-->
+<view class="bgc img">
+  <view class="navigationBarBG">
+    <view class="navigationBar" style="padding-top:{{StatusBar}}px;height:{{CustomBar}}px;line-height:{{CustomBar - StatusBar}}px;">
+      <text bindtap="goBack" class="iconfont icon-back back"></text>
+      <view class="title">{{title}}</view>
+    </view>
+    <view>
+      <view style="padding:30rpx;box-sizing:content-box;margin:0 auto;width:220px;height:200px;background:rgba(255, 255, 255, 0.5);box-shadow:0rpx 0rpx 10rpx rgba(0, 0, 0, 0.1);border-radius:30rpx;">
+        <image style="width:100%;height:100%" src="{{imagePath}}"></image>
+      </view>
+      <view>
+        <form bindsubmit="formSubmit">
+          <view class="editor">
+            <view class="video_name">
+              <text>图片名称</text>
+              <input type="text" bindinput="fileNameInput" name="fileName" value="{{fileName}}" placeholder="请输入图片名称"></input>
+            </view>
+            <view class="video_note">
+              <text>备注</text>
+              <input type="text" bindinput="remarkInput" value="{{remark}}" placeholder="加些描述,会让更多人看到"></input>
+            </view>
+            <!-- <view class="video_note">
+              <text>手机号码</text>
+              <input type="text" bindinput="phoneInput" name="phone" value="{{phone}}" placeholder="请保证手机号码能联系到您"></input>
+            </view> -->
+            <view style="margin-top:50rpx;">
+              <button wx:if="{{haveUserInfo}}" form-type="submit"  disabled="{{btnDisabled}}" hover-class="btn_hover_style" class="btn_style">发布</button>
+              <button wx:if="{{!haveUserInfo}}" disabled="{{btnDisabled}}" open-type="getUserInfo" bindgetuserinfo="userinfo" hover-class="btn_hover_style" class="btn_style">请先授权再发布</button>
+            </view>
+          </view>
+        </form>
+      </view>
+    </view>
+    <!-- <form bindsubmit="formSubmit">
+      <view class="tabList">
+        <view class="tab">
+          <view class="photo">
+            <image src="{{imagePath}}" mode="aspectFit"></image>
+          </view>
+          <view class="editor">
+            <view>
+              <input placeholder="添加图片名称" name="fileName" bindinput="fileNameInput" value="{{fileName}}"></input>
+            </view>
+            <view>
+              <input placeholder="加些描述,会让更多人看到" bindinput="remarkInput" value="{{remark}}"></input>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view style="box-sizing:border-box;margin-top:40rpx;padding:0 40rpx;">
+        <button form-type="submit" hover-class="btn_hover_style" class="btn_style">发布</button>
+      </view>
+    </form> -->
+  </view>
+  <!-- <authorize wx:if="{{isShow}}" style="position:fixed;left:0;top:0;width:100%;height:100%;z-index:9;" bind:dialogStatus="getChildrenCode"></authorize> -->
+  <!-- <view class="box"></view> -->
+  <phoneCode wx:if="{{isShowPhoneCode}}" style="position:fixed;left:0;top:0;width:100%;height:100%;z-index:9;" bind:isShowPhoneCodeStatus="isShowPhoneCodeStatus" phone="{{phone}}"/>
+</view>

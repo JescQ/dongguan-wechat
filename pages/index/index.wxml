@@ -1,0 +1,23 @@
+<!--index.wxml-->
+<view class="bgc img">
+  <view class="navigationBarBG">
+    <view class="navigationBar" style="padding-top:{{StatusBar}}px;height:{{CustomBar}}px;line-height:{{CustomBar - StatusBar}}px;">
+      <view class="title">{{title}}</view>
+    </view>
+      <view class="tabList" style="margin-top:100rpx;">
+        <view wx:for="{{tabListData}}" wx:key="key" wx:if="{{item.showStatus}}" bindtap="go" data-url="{{item.url}}" class="tab">
+          <view class="photo">
+            <image src="{{item.img}}"></image>
+          </view>
+          <view class="text">
+            <text>{{item.title}}</text>
+          </view>
+          <view class="btn">
+            <view style="background-color:{{item.color}}">{{item.btnText}}</view>
+            <!-- <button class="">上传视频</button> -->
+          </view>
+        </view>
+      </view>
+  </view>
+  <!-- <authorize wx:if="{{isShow}}" style="position:fixed;left:0;top:0;width:100%;height:100%;z-index:9;" bind:dialogStatus="getChildrenCode"></authorize> -->
+</view>

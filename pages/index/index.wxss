@@ -1,0 +1,33 @@
+/**index.wxss**/
+.img .photo{
+  float: left;
+  width: 85rpx;
+  height: 85rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.img .photo image{
+  width: 100%;
+  height: 100%;
+}
+.text{
+  display: flex;
+  align-items: center;
+  float: left;
+  margin-left: 30rpx;
+  width: 170rpx;
+  height: 85rpx;
+  line-height: 42.5rpx;
+}
+.btn{
+  display: flex;
+  align-items: center;
+  float: right;
+  height: 85rpx;
+  line-height: 1;
+}
+.btn view{
+  padding: 15rpx 30rpx;
+  border-radius: 40rpx;
+  color: #fff;
+}

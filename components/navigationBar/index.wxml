@@ -1,0 +1,5 @@
+<!--components/navigationBar/index.wxml-->
+    <view class="navigationBar" style="background:{{config.bgc}};color:{{config.color}};padding-top:{{StatusBar}}px;height:{{CustomBar}}px;line-height:{{CustomBar - StatusBar}}px;">
+      <text bindtap="goBack" class="iconfont icon-back back"></text>
+      <view class="title" style="background:{{config.bgc}}">{{config.title}}</view>
+    </view>

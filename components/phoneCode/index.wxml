@@ -1,0 +1,22 @@
+<!--components/phoneCode/index.wxml-->
+<view class="dialog">
+  <view class="box">
+    <view class="dialog_title">
+      <text>短信验证</text>
+      <view style="position:absolute;right:0;top: 50%;transform: translate(-50%,-50%);line-height: 0;">
+        <icon type="cancel" bindtap="hidePhoneCode" />
+      </view>
+    </view>
+    <view style="padding:20rpx 20rpx 0;font-size:12px;">请验证手机号码以便为您提供短信通知审核状态的服务!</view>
+    <view style="display:flex;flex-direction: column;justify-content: space-around;height:300rpx;padding:20rpx;">
+      <input type="number" maxlength="11" placeholder="请输入手机号码" style="padding-left:30rpx;height:80rpx;border:1px solid #efefef;" bindinput="phoneInupt" value="{{phone}}" />
+      <view style="position:relative;display:flex;line-height:70rpx;border:1px solid #efefef;">
+        <input type="number" maxlength="4" placeholder='请输入验证码' bindinput='bindCodeInput' value="{{phoneCode}}" style='padding-left:30rpx;height:80rpx;' />
+        <button class='codeBtn' bindtap='getPhoneCode' disabled="{{disabled}}">{{btnText}}</button>
+      </view>
+      <view>
+        <button bindtap="submitPhoneCode">提交验证</button>
+      </view>
+    </view>
+  </view>
+</view>

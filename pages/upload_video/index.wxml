@@ -1,0 +1,63 @@
+<!--pages/upload_video/index.wxml-->
+<view class="bgc img">
+  <!-- <image src="../../images/upload_video.png"></image> -->
+  <view class="navigationBarBG">
+    <view class="navigationBar" style="padding-top:{{StatusBar}}px;height:{{CustomBar}}px;line-height:{{CustomBar - StatusBar}}px;">
+      <text bindtap="goBack" class="iconfont icon-back back"></text>
+      <view class="title">{{title}}</view>
+    </view>
+    <view class="content">
+      <view class="video_area mb50rpx">
+        <view bindtap="chooseVideo" class="mask">
+          <view class="add_icon">
+          </view>
+          <!-- <text wx:if="{{videoUrl}}" class="iconfont icon-reset"></text> -->
+        </view>
+        <video wx:if="{{videoUrl}}" src="{{videoUrl}}" controls="{{false}}" show-center-play-btn="{{false}}" autoplay="{{false}}" initial-time='0.01' class="video_show"></video>
+      </view>
+      <form bindsubmit="formSubmit">
+        <view class="editor">
+          <view class="video_type">
+            <text>类型</text>
+            <view>
+              <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key="{{'label'}}">
+                <text>{{array[index].label}}</text>
+                <view>
+                  <text class="more_btn iconfont icon-right"></text>
+                </view>
+              </picker>
+              <!-- <text>城市风光</text> -->
+            </view>
+            <!-- <input type="text"></input> -->
+          </view>
+          <view class="video_name">
+            <text>视频名称</text>
+            <input type="text" bindinput="fileNameInput" name="fileName" value="{{fileName}}" placeholder="请输入视频名称"></input>
+          </view>
+          <view class="video_note">
+            <text>备注</text>
+            <input type="text" bindinput="remarkInput" value="{{remark}}" placeholder="加些描述,会让更多人看到"></input>
+          </view>
+          <!-- <view class="video_note" style="display:flex;justify-content:space-between;">
+            <text>手机号码</text>
+            <view style="display:flex;justify-content:space-between;width:calc(100% - 210rpx);">
+              <input style="width:calc(100% - 190rpx);" type="number" bindinput="phoneInput" maxlength="11" name="phone" value="{{phone}}" placeholder="请输入手机号码"></input>
+              <text style="width:auto;color: #2d70ff;" bindtap="yzm">短信验证</text>
+            </view>
+          </view> -->
+          <!-- <view class="video_note">
+            <text>短信验证</text>
+            <input type="number" bindinput="codeInput" name="code" value="{{code}}" placeholder="请输入验证码"></input>
+          </view> -->
+          <view style="margin-top:50rpx;">
+            <button wx:if="{{haveUserInfo}}" disabled="{{btnDisabled}}" form-type="submit" hover-class="btn_hover_style" class="btn_style">发布</button>
+            <button wx:if="{{!haveUserInfo}}" disabled="{{btnDisabled}}" open-type="getUserInfo" bindgetuserinfo="userinfo" hover-class="btn_hover_style" class="btn_style">请先授权再发布</button>
+          </view>
+        </view>
+      </form>
+    </view>
+  </view>
+  <!-- <authorize wx:if="{{isShow}}" style="position:fixed;left:0;top:0;width:100%;height:100%;z-index:9;" bind:dialogStatus="getChildrenCode"></authorize> -->
+  <!-- <view class="box"></view> -->
+  <phoneCode wx:if="{{isShowPhoneCode}}" style="position:fixed;left:0;top:0;width:100%;height:100%;z-index:9;" bind:isShowPhoneCodeStatus="isShowPhoneCodeStatus" phone="{{phone}}" />
+</view>

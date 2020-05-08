@@ -1,0 +1,26 @@
+<!--pages/upload_photo_history/index.wxml-->
+<wxs module="filter" src="../../utils/numbertofix.wxs"></wxs>
+<view>
+  <view style="background:#fbfbfb">
+    <view wx:for="{{list}}" class="content" style="margin-bottom:20rpx;padding:40rpx;background:#fff;">
+      <view>
+        <text style="max-width:60%;overflow : hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;word-break: break-all;">{{item.fileFprimalnam}}</text>
+        <text bindtap="previewImage" data-filepath="{{item.filePath}}">查看文件</text>
+      </view>
+      <!-- <view>
+        <text>文件描述</text>
+      </view> -->
+      <view>
+        <text>{{item.updateTime}}</text>
+        <text style="color:{{item.reviewStatus == 0?'#fea500':item.reviewStatus == 1 ?'#10aeff':'#f76260'}}">{{filter.statusFilter(item.reviewStatus)}}</text>
+      </view>
+      <view style="margin-top:40rpx;">
+        <!-- <button disabled="{{item.reviewStatus != 0}}" bindtap="modify" style="color:{{item.reviewStatus == 0?'#10aeff':''}};" data-resoureId="{{item.id}}">修改</button> -->
+        <button disabled="{{item.reviewStatus != 0}}" bindtap="cancel" data-id="{{item.id}}">取消</button>
+      </view>
+    </view>
+    <view wx:if="{{pages < maxPages}}" bindtap="more" style="padding:20rpx 40rpx 40rpx;text-align:center;">点击加载更多</view>
+    <view wx:if="{{list.length==0}}" style="padding:20rpx 40rpx 40rpx;text-align:center;">暂无预约</view>
+  </view>
+  <!-- <authorize wx:if="{{isShow}}" style="position:fixed;left:0;top:0;width:100%;height:100%;z-index:9;" bind:historyInit="historyInit" bind:dialogStatus="getChildrenCode"></authorize> -->
+</view>

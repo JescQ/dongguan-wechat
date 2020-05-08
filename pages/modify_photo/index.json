@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "navigationBar": "../../components/navigationBar/index"
+  },
+  "navigationStyle": "default",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "图片编辑"
+}

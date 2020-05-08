@@ -1,0 +1,89 @@
+<!--pages/appointment/index.wxml-->
+<view class="bgc">
+  <view class="navigationBarBG">
+    <view style="position:fixed;z-index:999999;width:100%;">
+      <!-- <navigationBar config="{{config}}"></navigationBar> -->
+      <!-- <view style="padding-top:{{CustomBar}}px"></view> -->
+
+      <view wx:if="{{!promptStatus}}" class="prompt prompt_info">承诺对您的个人信息进行保密</view>
+      <view wx:if="{{promptStatus}}" class="prompt prompt_error">上传的身份证照片号码不清晰,已被驳回,请重新上传!</view>
+    </view>
+    <view style="padding-top:50rpx"></view>
+    <form bindsubmit="formSubmit">
+      <view class="user_info from mb20rpx">
+        <view class="name">
+          <text>真实姓名</text>
+          <input type="text" bindinput="nameInput" name="realName" value="{{form.realName}}" placeholder="请输入您的真实姓名"></input>
+        </view>
+        <view class="id">
+          <text>身份证号码</text>
+          <input type="idcard" bindinput="idInput" name="identityCard" value="{{form.identityCard}}" placeholder="请输入您的身份证号码"></input>
+        </view>
+        <!-- <view class="phone">
+          <text>电话号码</text>
+          <input type="number" maxlength="11" bindinput="phoneInput" name="phone" value="{{form.phone}}" placeholder="请输入您的电话号码"></input>
+        </view> -->
+        <view class="photo" bindtap="uploadPhoto">
+          上传人脸照片
+          <text class="iconfont icon-right"></text>
+        </view>
+      </view>
+      <view class="other_info from mb20rpx">
+        <view class="company_name">
+          <text>单位名称</text>
+          <input type="text" bindinput="companyInput" name="company" value="{{form.company}}" placeholder="请输入您的单位名称"></input>
+        </view>
+        <view class="appointment_time">
+          <text>预约日期</text>
+          <picker mode="date" fields="day" start="{{dateAppointment}}" value="{{dateAppointment}}" bindchange="datePicker">
+            {{dateAppointment}}
+          </picker>
+        </view>
+        <view class="appointment_time">
+          <text>预约时间</text>
+          <!-- <picker mode="time" start="9:00" end="16:00" value="{{timeAppointment}}" bindchange="timeChange">
+          {{timeAppointment}}
+        </picker> -->
+          <picker value="{{index}}" range="{{time}}" bindchange="timePicker">
+            {{timeAppointment}}
+          </picker>
+        </view>
+        <view class="appointment_type">
+          <text>预约类型</text>
+          <radio-group style="display:flex;" bindchange="typeAppointmentChange">
+            <label style="display:flex;align-items:center;" wx:for="{{typeAppointment}}">
+              <radio value="{{item.value}}" checked="{{item.checked}}" />{{item.name}}
+            </label>
+          </radio-group>
+        </view>
+      </view>
+      <view wx:if="{{form.subType == 1}}" class="id_photo from2 mb20rpx">
+        <view class="title">身份证照片</view>
+        <view class="content">
+          <view class="id_1">
+            <view bindtap="positiveId">
+              <image src="{{idPhotoUrl.positive}}"></image>
+              <view class="add_icon">
+              </view>
+            </view>
+          </view>
+          <view class="txt">上传身份证正面照片</view>
+          <view class="id_2">
+            <view bindtap="negativeId">
+              <image src="{{idPhotoUrl.negative}}"></image>
+              <view class="add_icon">
+              </view>
+            </view>
+          </view>
+          <view class="txt">上传身份证反面照片</view>
+        </view>
+      </view>
+      <view style="padding: 20rpx 40rpx 40rpx;">
+        <button wx:if="{{haveUserInfo}}" form-type="submit" hover-class="btn_hover_style" class="btn_style">提交</button>
+        <button wx:if="{{!haveUserInfo}}" open-type="getUserInfo" bindgetuserinfo="userinfo" hover-class="btn_hover_style" class="btn_style">请先授权再发布</button>
+      </view>
+    </form>
+  </view>
+  <!-- <authorize wx:if="{{isShow}}" style="position:fixed;left:0;top:0;width:100%;height:100%;z-index:9;" bind:dialogStatus="getChildrenCode"></authorize> -->
+   <phoneCode wx:if="{{isShowPhoneCode}}" style="position:fixed;left:0;top:0;width:100%;height:100%;z-index:9;" bind:isShowPhoneCodeStatus="isShowPhoneCodeStatus" phone="{{phone}}"/>
+</view>
